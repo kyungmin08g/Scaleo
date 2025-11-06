@@ -29,7 +29,7 @@ export function CTASection() {
             <Button
               onClick={handleStartTest}
               size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground gap-2 group w-full sm:w-auto"
+              className="bg-primary hover:bg-primary/90 hover:cursor-pointer text-primary-foreground gap-2 group w-full sm:w-auto"
             >
               테스트 시작하기
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

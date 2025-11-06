@@ -31,12 +31,12 @@ export function Header() {
             {/* 로그인 여부 확인 로직 구현 */}
             {(typeof window !== "undefined" && localStorage.getItem("isLoggedIn")) ? 
               <Link href="/test">
-                <Button size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground">
+                <Button size="sm" className="bg-primary hover:bg-primary/90 hover:cursor-pointer text-primary-foreground">
                   Get Started
                 </Button>
               </Link> : 
               <Link href="/login">
-                <Button size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground">
+                <Button size="sm" className="bg-primary hover:bg-primary/90 hover:cursor-pointer text-primary-foreground">
                   Get Started
                 </Button>
               </Link>

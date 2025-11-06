@@ -43,7 +43,7 @@ export function HeroSection() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button
               size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground gap-2 group"
+              className="bg-primary hover:bg-primary/90 hover:cursor-pointer text-primary-foreground gap-2 group"
               onClick={() => {
                 {/* TODO: 로그인 여부 로직 구현 */}
 
