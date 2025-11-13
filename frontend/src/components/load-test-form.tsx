@@ -1,7 +1,7 @@
 "use client"
 
 import { useRef, useState } from "react"
-import { useRouter } from "next/navigation"
+import { useNavigate } from "react-router-dom"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Plus, Trash2 } from "lucide-react"
@@ -27,7 +27,7 @@ interface APIEndpoint {
 }
 
 export function LoadTestForm() {
-  const router = useRouter()
+  const navigate = useNavigate()
 
   const isRequiredFieldCheck = useRef(false)
   const isChecked = useRef(false)
@@ -215,7 +215,7 @@ export function LoadTestForm() {
 
       setTimeout(() => {
         setIsTestRunning(false)
-        router.push("/results")
+        navigate("/results")
       }, 3000)
     }
   }
@@ -358,7 +358,7 @@ export function LoadTestForm() {
                         onClick={() => addKeyValuePair(api.id, "queryParams")}
                         size="sm"
                         variant="outline"
-                        className="gap-2 h-8 text-xs hover:cursor-pointer"
+                        className="gap-2 h-8 text-xs hover:cursor-pointer hover:text-foreground"
                       >
                         <Plus className="w-3 h-3" />추가
                       </Button>
@@ -409,7 +409,7 @@ export function LoadTestForm() {
                         onClick={() => addKeyValuePair(api.id, "headers")}
                         size="sm"
                         variant="outline"
-                        className="gap-2 h-8 text-xs hover:cursor-pointer"
+                        className="gap-2 h-8 text-xs hover:cursor-pointer hover:text-foreground"
                       >
                         <Plus className="w-3 h-3" />추가
                       </Button>

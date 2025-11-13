@@ -34,7 +34,7 @@ export function BenefitsSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {benefits.map((benefit) => (
             
-            <Card key={benefit.title} className="bg-card/50 border-border/40 p-8">
+            <Card key={benefit.title} className="bg-card/50 border-border/40 p-8 items-center shadow-primary">
               <h3 className="text-xl font-semibold text-foreground mb-4">{benefit.title}</h3>
               <ul className="space-y-3">
 

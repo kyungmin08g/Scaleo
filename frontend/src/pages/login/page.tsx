@@ -2,24 +2,23 @@
 
 import { Button } from "@/components/ui/button"
 import { Github, Chrome } from "lucide-react"
-import Link from "next/link"
-import { useRouter } from "next/navigation"
+import { useNavigate } from "react-router-dom"
 
 export default function LoginPage() {
-  const router = useRouter()
+  const navigate = useNavigate()
   
   const handleGitHubLogin = () => {
     // API CALL: POST /api/auth/github
     // GitHub OAuth 인증 요청 및 사용자 정보 저장
     // 응답: { success: true, user: {...}, token: "..." }
-    router.push("/test")
+    navigate("/test")
   }
 
   const handleGoogleLogin = () => {
     // API CALL: POST /api/auth/google
     // Google OAuth 인증 요청 및 사용자 정보 저장
     // 응답: { success: true, user: {...}, token: "..." }
-    router.push("/test")
+    navigate("/test")
   }
 
   return (
@@ -44,14 +43,14 @@ export default function LoginPage() {
         {/* Logo */}
         <div className="mb-8 text-center">
           <div className="text-center">
-            <Link href="#" className="inline-flex items-center justify-center text-center">
+            <a href="#" className="inline-flex items-center justify-center text-center">
               <div className="w-5.5 h-5.5 rounded from-primary to-accent flex items-center justify-center text-xs font-bold text-primary-foreground mb-4 m-2">
                 <img src="/service-logo.png" alt="Scaleo"/>
               </div>
-            </Link>
-            <Link href="#" className="inline-block">
+            </a>
+            <a href="#" className="inline-block">
               <h1 className="text-2xl font-bold text-foreground text-balance">Scaleo</h1>
-            </Link>
+            </a>
           </div>          
         </div>
 
@@ -67,7 +66,7 @@ export default function LoginPage() {
           <Button
             onClick={handleGitHubLogin}
             variant="outline"
-            className="w-full h-12 border border-secondary-foreground/20 hover:cursor-pointer text-foreground flex items-center justify-center gap-2 transition-colors bg-transparent"
+            className="w-full h-12 border border-secondary-foreground/20 hover:cursor-pointer hover:text-foreground text-foreground flex items-center justify-center gap-2 transition-colors bg-transparent"
           >
             <Github className="w-5 h-5" />
             <span>GitHub로 계속하기</span>
@@ -77,7 +76,7 @@ export default function LoginPage() {
           <Button
             onClick={handleGoogleLogin}
             variant="outline"
-            className="w-full h-12 border border-secondary-foreground/20 hover:cursor-pointer text-foreground flex items-center justify-center gap-2 transition-colors bg-transparent"
+            className="w-full h-12 border border-secondary-foreground hover:cursor-pointer hover:text-foreground text-foreground flex items-center justify-center gap-2 transition-colors bg-transparent"
           >
             <Chrome className="w-5 h-5" />
             <span>Google로 계속하기</span>
@@ -105,13 +104,13 @@ export default function LoginPage() {
         {/* Footer */}
         <p className="text-center text-xs text-foreground/50 mt-6">
           로그인하면{" "}
-          <Link href="/" className="text-cyan-400 hover:text-cyan-300 transition-colors">
+          <a href="/" className="text-cyan-400 hover:text-cyan-300 transition-colors">
             이용약관
-          </Link>
+          </a>
           과{" "}
-          <Link href="/" className="text-cyan-400 hover:text-cyan-300 transition-colors">
+          <a href="/" className="text-cyan-400 hover:text-cyan-300 transition-colors">
             개인정보처리방침
-          </Link>
+          </a>
           에 동의하게 됩니다.
         </p>
       </div>

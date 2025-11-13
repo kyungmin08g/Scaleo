@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { useRouter } from "next/navigation"
+import { useNavigate } from "react-router-dom"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Trash2, Eye, EyeOff } from "lucide-react"
@@ -20,7 +20,7 @@ interface DBConnection {
 }
 
 export function DataTestForm() {
-  const router = useRouter()
+  const navigate = useNavigate()
   const [scenarioName, setScenarioName] = useState("")
   const [dataSize, setDataSize] = useState("100000")
   const [batchSize, setBatchSize] = useState("1000")
@@ -90,7 +90,7 @@ export function DataTestForm() {
 
         setTimeout(() => {
           setIsLoading(false)
-          router.push("/results")
+          navigate("/results")
         }, 3000)
       }
     })

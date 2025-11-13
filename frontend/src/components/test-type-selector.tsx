@@ -1,6 +1,5 @@
 "use client"
 
-import Link from "next/link"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Zap, Database } from "lucide-react"
@@ -41,7 +40,7 @@ export function TestTypeSelector() {
         const Icon = type.icon
 
         return (
-          <Link key={type.id} href={type.href}>
+          <a key={type.id} href={type.href}>
             <Card className="bg-card/50 border-border/40 p-6 hover:bg-card/70 transition-colors h-full cursor-pointer">
               <div className="flex items-start gap-4">
                 <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${type.color} flex items-center justify-center`}>
@@ -54,7 +53,7 @@ export function TestTypeSelector() {
                 </div>
               </div>
             </Card>
-          </Link>
+          </a>
         )
       })}
     </div>

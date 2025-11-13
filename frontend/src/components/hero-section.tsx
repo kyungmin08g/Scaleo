@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { useRouter } from "next/navigation"
+import { useNavigate } from "react-router-dom"
 import { ArrowRight, Zap } from "lucide-react"
 
 const statsData = [
@@ -12,7 +12,7 @@ const statsData = [
 ]
 
 export function HeroSection() {
-  const router = useRouter()
+  const navigate = useNavigate()
 
   return (
     <section className="relative overflow-hidden bg-background">
@@ -49,9 +49,9 @@ export function HeroSection() {
 
                 const isLoggedIn = typeof window !== "undefined" && localStorage.getItem("isLoggedIn")
                 if (isLoggedIn) {
-                  router.push("/test")
+                  navigate("/test")
                 } else {
-                  router.push("/login")
+                  navigate("/login")
                 }
               }}
             >

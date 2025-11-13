@@ -1,4 +1,3 @@
-import Link from "next/link"
 import { Github, Instagram } from "lucide-react"
 
 const featuresTitleData = [
@@ -31,9 +30,9 @@ export function Footer() {
             <ul className="space-y-3">
               {featuresTitleData.map((data, index) =>
                 <li key={index}>
-                  <Link href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                     {data.title}
-                  </Link>
+                  </a>
                 </li>
               )}
             </ul>
@@ -45,9 +44,9 @@ export function Footer() {
             <ul className="space-y-3">
               {lawTitleData.map((date, index) => 
                 <li key={index}>
-                  <Link href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                     {date.title}
-                  </Link>
+                  </a>
                 </li>
               )}
             </ul>
@@ -59,18 +58,18 @@ export function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             <p className="text-sm text-muted-foreground">© 2025 Scaleo. All rights reserved.</p>
             <div className="flex gap-4">
-              <Link
+              <a
                 href="https://github.com/kyungmin08g/Scaleo"
                 className="p-2 rounded-lg hover:bg-primary/10 text-muted-foreground hover:text-primary transition-colors"
               >
                 <Github className="w-5 h-5" />
-              </Link>
-              <Link
+              </a>
+              <a
                 href="#"
                 className="p-2 rounded-lg hover:bg-primary/10 text-muted-foreground hover:text-primary transition-colors"
               >
                 <Instagram className="w-5 h-5" />
-              </Link>
+              </a>
             </div>
           </div>
         </div>

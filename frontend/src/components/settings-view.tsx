@@ -2,7 +2,7 @@
 
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Bell, Lock, LogOut } from "lucide-react"
+import { Bell, LogOut } from "lucide-react"
 import { useState } from "react"
 
 export function SettingsView() {
@@ -17,28 +17,8 @@ export function SettingsView() {
     emailOnError: true,
     weeklyReport: false,
   })
-
-  const [showChangePassword, setShowChangePassword] = useState(false)
-  const [passwordForm, setPasswordForm] = useState({
-    currentPassword: "",
-    newPassword: "",
-    confirmPassword: "",
-  })
-
   const [showAlert, setShowAlert] = useState(false)
   const [alertMessage, setAlertMessage] = useState("")
-
-  const handlePasswordChange = () => {
-    // API CALL: POST /api/user/password/change
-    // 비밀번호 변경 요청
-    // 요청 본문: { currentPassword, newPassword }
-    // 응답: { success: true, message: "비밀번호가 변경되었습니다." }
-    setAlertMessage("비밀번호가 변경되었습니다.")
-    setShowAlert(true)
-    setShowChangePassword(false)
-    setPasswordForm({ currentPassword: "", newPassword: "", confirmPassword: "" })
-    setTimeout(() => setShowAlert(false), 3000)
-  }
 
   const handleLogout = () => {
     // API CALL: POST /api/auth/logout
@@ -171,78 +151,6 @@ export function SettingsView() {
               <p className="text-xs text-muted-foreground">매주 월요일에 테스트 요약을 받습니다</p>
             </div>
           </label>
-        </div>
-      </Card>
-
-      {/* 보안 */}
-      <Card className="bg-card/50 border-border/40 p-8">
-        <h2 className="text-xl font-semibold text-foreground mb-6 flex items-center gap-2">
-          <Lock className="w-5 h-5" />보안
-        </h2>
-
-        <div className="space-y-4">
-          <div className="p-4 border border-border/40 rounded-lg flex items-center justify-between">
-            <div>
-              <p className="font-medium text-foreground">비밀번호</p>
-              <p className="text-xs text-muted-foreground">마지막 변경: 2024년 12월 1일</p>
-            </div>
-            <Button
-              onClick={() => setShowChangePassword(!showChangePassword)}
-              size="sm"
-              className="bg-primary hover:bg-primary/90 hover:cursor-pointer text-primary-foreground"
-            >
-              변경
-            </Button>
-          </div>
-
-          {showChangePassword && (
-            <div className="p-4 bg-secondary/20 border border-border/40 rounded-lg space-y-3">
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-2">현재 비밀번호</label>
-                <input
-                  type="password"
-                  value={passwordForm.currentPassword}
-                  onChange={(e) => setPasswordForm({ ...passwordForm, currentPassword: e.target.value })}
-                  className="w-full px-4 py-2 bg-input border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-                  placeholder="현재 비밀번호"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-2">새 비밀번호</label>
-                <input
-                  type="password"
-                  value={passwordForm.newPassword}
-                  onChange={(e) => setPasswordForm({ ...passwordForm, newPassword: e.target.value })}
-                  className="w-full px-4 py-2 bg-input border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-                  placeholder="새 비밀번호"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-2">비밀번호 확인</label>
-                <input
-                  type="password"
-                  value={passwordForm.confirmPassword}
-                  onChange={(e) => setPasswordForm({ ...passwordForm, confirmPassword: e.target.value })}
-                  className="w-full px-4 py-2 bg-input border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-                  placeholder="비밀번호 확인"
-                />
-              </div>
-              <div className="flex gap-2 pt-2">
-                <Button
-                  onClick={handlePasswordChange}
-                  className="flex-1 bg-primary hover:bg-primary/90 hover:cursor-pointer text-primary-foreground text-sm"
-                >
-                  비밀번호 변경
-                </Button>
-                <Button
-                  onClick={() => setShowChangePassword(false)}
-                  className="flex-1 border-border bg-transparent text-foreground hover:bg-transparent hover:cursor-pointer text-sm"
-                >
-                  취소
-                </Button>
-              </div>
-            </div>
-          )}
         </div>
       </Card>
 

@@ -1,7 +1,7 @@
 "use client"
 
 import { useRef, useState } from "react"
-import { useRouter } from "next/navigation"
+import { useNavigate } from "react-router-dom"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { CheckCircle, AlertCircle, Trash2, Eye } from "lucide-react"
@@ -78,7 +78,7 @@ const mockRecords: TestRecord[] = [
 ]
 
 export function HistoryView() {
-  const router = useRouter()
+  const navigate = useNavigate()
 
   const [selectedRecord, setSelectedRecord] = useState<TestRecord | null>(null)
   const [showDetailModal, setShowDetailModal] = useState(false)
@@ -144,9 +144,9 @@ export function HistoryView() {
               
               const isLoggedIn = typeof window !== "undefined" && localStorage.getItem("isLoggedIn")
               if (isLoggedIn) {
-                router.push("/test")
+                navigate("/test")
               } else {
-                router.push("/login")
+                navigate("/login")
               }
             }}
             className="bg-primary hover:bg-primary/90 hover:cursor-pointer text-primary-foreground self-start"

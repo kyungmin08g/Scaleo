@@ -1,7 +1,6 @@
 "use client"
 
 import { useState } from "react"
-import Link from "next/link"
 import { cn } from "@/lib/utils"
 import { Activity, BarChart3, Settings, History, Menu, X } from "lucide-react"
 
@@ -36,12 +35,12 @@ export function SidebarNav({ className, currentPath = "/test" }: SidebarNavProps
       {/* Desktop sidebar - always visible */}
       <aside className={cn("hidden lg:flex w-64 bg-secondary/50 border-r border-border/40 p-6 flex-col", className)}>
         <div className="mb-8">
-          <Link href="/test" className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded from-primary to-accent flex items-center justify-center text-xs font-bold text-primary-foreground">
+          <a href="/test" className="flex items-center gap-2">
+            <div className="w-6 h-6 rounded from-primary to-accent flex items-center justify-center text-xs font-bold text-primary-foreground">
               <img src="/service-logo.png" alt="Scaleo" />
             </div>
             <span className="font-bold text-lg">Scaleo</span>
-          </Link>
+          </a>
         </div>
 
         <nav className="flex-1 space-y-2">
@@ -51,7 +50,7 @@ export function SidebarNav({ className, currentPath = "/test" }: SidebarNavProps
             const isActive = currentPath === item.href
 
             return (
-              <Link
+              <a
                 key={item.href}
                 href={item.href}
                 className={cn(
@@ -61,7 +60,7 @@ export function SidebarNav({ className, currentPath = "/test" }: SidebarNavProps
               >
                 <Icon className="w-5 h-5" />
                 <span className="font-medium">{item.label}</span>
-              </Link>
+              </a>
             )
           })}
         </nav>
@@ -74,12 +73,12 @@ export function SidebarNav({ className, currentPath = "/test" }: SidebarNavProps
         )}
       >
         <div className="mb-8">
-          <Link href="/test" className="flex items-center gap-2" onClick={() => setIsOpen(false)}>
+          <a href="/test" className="flex items-center gap-2" onClick={() => setIsOpen(false)}>
             <div className="w-8 h-8 rounded from-primary to-accent flex items-center justify-center text-xs font-bold text-primary-foreground">
               <img src="/service-logo.png" alt="Scaleo" />
             </div>
             <span className="font-bold text-lg">Scaleo</span>
-          </Link>
+          </a>
         </div>
 
         <nav className="flex-1 space-y-2">
@@ -89,7 +88,7 @@ export function SidebarNav({ className, currentPath = "/test" }: SidebarNavProps
             const isActive = currentPath === item.href
 
             return (
-              <Link
+              <a
                 key={item.href}
                 href={item.href}
                 onClick={() => setIsOpen(false)}
@@ -100,7 +99,7 @@ export function SidebarNav({ className, currentPath = "/test" }: SidebarNavProps
               >
                 <Icon className="w-5 h-5" />
                 <span className="font-medium">{item.label}</span>
-              </Link>
+              </a>
             )
           })}
         </nav>
